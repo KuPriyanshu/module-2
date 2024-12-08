@@ -4,7 +4,7 @@
   },
   "scripts": {
     "start-backend": "node backend/server.js",
-    "start-frontend": "vite preview --host 0.0.0.0 --port 3000",  // Start the frontend
+    "start-frontend": "vite preview --host 0.0.0.0 --port 3000", 
     "start": "concurrently \"npm run start-backend\" \"npm run serve-frontend\" \"peerjs --port 5001 --path /\""
   }
 }
