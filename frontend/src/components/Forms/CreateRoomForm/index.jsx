@@ -14,7 +14,7 @@ const CreateRoomForm = ({ uuid, socket, setUser, setMyPeer }) => {
     // {name,roomId, userId, host, presenter}
 
     const myPeer = new Peer(undefined, {
-      host: "https://module-2-peerjs.onrender.com/",
+      host: "module-2-peerjs.onrender.com",
       port: 5002,
       path: "/",
       secure: false,
