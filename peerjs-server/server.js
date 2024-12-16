@@ -52,7 +52,7 @@ app.get("/", (req, res) => {
 });
 
 // Start the Express server
-const port = process.env.PORT || 5002; // Use a single port for both
+const port = process.env.PORT || 443; // Use a single port for both
 const server = app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
@@ -60,6 +60,7 @@ const server = app.listen(port, () => {
 // Create the PeerJS server using the same Express instance
 const peerServer = ExpressPeerServer(server, {
   path: "/", // Path for PeerJS connections
+  secure: true,
   allow_discovery: true,
 });
 
