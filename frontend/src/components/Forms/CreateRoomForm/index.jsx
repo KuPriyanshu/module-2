@@ -15,9 +15,9 @@ const CreateRoomForm = ({ uuid, socket, setUser, setMyPeer }) => {
 
     const myPeer = new Peer(undefined, {
       host: "module-2-peerjs.onrender.com",
-      port: 5002,
+      port: 443,
       path: "/",
-      secure: false,
+      secure: true,
     });
 
     setMyPeer(myPeer);
