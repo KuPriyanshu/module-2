@@ -8,7 +8,7 @@ import "./App.css";
 import Forms from "./components/Forms";
 import RoomPage from "./pages/RoomPage";
 
-const server = "https://module-2-major-p.onrender.com/";
+const server = "https://major-project-module-2.onrender.com/";
 const connectionOptions = {
   "force new connection": true,
   reconnectionAttempts: "Infinity",
