@@ -14,10 +14,9 @@ const CreateRoomForm = ({ uuid, socket, setUser, setMyPeer }) => {
     // {name,roomId, userId, host, presenter}
 
     const myPeer = new Peer(undefined, {
-      host: "localhost",
-      port: 443,
       path: "/peerjs",
       secure: true,
+      allow_discovery: true
     });
 
     setMyPeer(myPeer);
