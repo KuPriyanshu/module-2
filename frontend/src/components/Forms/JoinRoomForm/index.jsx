@@ -13,7 +13,7 @@ const JoinRoomForm = ({ uuid, socket, setUser, setMyPeer }) => {
 
     // open peer connccction with socket.io server
     const myPeer = new Peer(undefined, {
-      host: "module-2-peerjs.onrender.com",
+      host: "localhost",
       port: 443,
       path: "/peerjs",
       secure: true,
