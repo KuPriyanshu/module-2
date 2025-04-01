@@ -59,7 +59,10 @@ const server = app.listen(port, () => {
 
 // Create the PeerJS server using the same Express instance
 const peerServer = ExpressPeerServer(server, {
+  // path: "/peerjs",
+  // secure: true,
   path: "/peerjs",
+  port: 443,  // Or the appropriate port depending on your deployment
   secure: true,
   allow_discovery: true,
 });
