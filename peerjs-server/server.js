@@ -79,9 +79,12 @@ peerServer.on("connection", (client) => {
   console.log("Peer connected:", client.getId());
     console.log("Peer connected:");
 });
+console.log("Peer connected:");
+
 
 peerServer.on("disconnect", (client) => {
   console.log("Peer disconnected:", client.getId());
   console.log("Peer disconnected:");
 });
+console.log("Peer disconnected:");
 
