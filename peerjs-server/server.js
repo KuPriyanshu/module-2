@@ -52,7 +52,7 @@ app.get("/", (req, res) => {
 });
 
 // Start the Express server
-const port = process.env.PORT || 443; // Use a single port for both
+const port = process.env.PORT || 5001; // Use a single port for both
 const server = app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
