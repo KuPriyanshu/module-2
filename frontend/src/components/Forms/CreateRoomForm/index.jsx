@@ -11,12 +11,12 @@ const CreateRoomForm = ({ uuid, socket, setUser, setMyPeer }) => {
   const handleCreateRoom = (e) => {
     e.preventDefault();
 
-    // {name,roomId, userId, host, presenter}
-
+    // Initialize PeerJS to connect to the deployed PeerJS server
     const myPeer = new Peer(undefined, {
-      path: "/peerjs",
-      secure: true,
-      allow_discovery: true
+      host: 'module-2-peerjs.onrender.com', // Use the deployed server's URL
+      port: 443, // Standard HTTPS port
+      path: '/peerjs', // The path you defined in the backend
+      secure: true, // Ensure WebSocket is secure (wss://)
     });
 
     setMyPeer(myPeer);
@@ -34,9 +34,10 @@ const CreateRoomForm = ({ uuid, socket, setUser, setMyPeer }) => {
       console.log(roomData);
       socket.emit("userJoined", roomData);
     });
+
     myPeer.on("error", (err) => {
-      console.log("peer connection error", err);
-      this.myPeer.reconnect();
+      console.log("Peer connection error", err);
+      myPeer.reconnect(); // Retry connecting to PeerJS server
     });
   };
 
