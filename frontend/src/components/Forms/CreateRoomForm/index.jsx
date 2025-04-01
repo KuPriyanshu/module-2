@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Peer from "peerjs";
 
 const CreateRoomForm = ({ uuid, socket, setUser, setMyPeer }) => {
@@ -11,20 +10,15 @@ const CreateRoomForm = ({ uuid, socket, setUser, setMyPeer }) => {
   const handleCreateRoom = (e) => {
     e.preventDefault();
 
-
-    const [peer, setPeer] = useState(null);  // State to hold the peer object
-
-    const createPeer = () => {
-    const newPeer = new Peer(undefined, {
-    host: 'module-2-peerjs.onrender.com',
-    port: 443,
-    path: '/peerjs',
-    secure: true,
+    // Initialize peer connection
+    const myPeer = new Peer(undefined, {
+      host: "module-2-peerjs.onrender.com", // Make sure this is the correct URL for your server
+      port: 443,
+      path: "/peerjs",
+      secure: true,
     });
 
-    setPeer(newPeer);  // Save peer in state for later use
-    };
-
+    setMyPeer(myPeer);
 
     myPeer.on("open", (id) => {
       const roomData = {
@@ -36,13 +30,12 @@ const CreateRoomForm = ({ uuid, socket, setUser, setMyPeer }) => {
       };
       setUser(roomData);
       navigate(`/${roomId}`);
-      console.log(roomData);
       socket.emit("userJoined", roomData);
     });
 
     myPeer.on("error", (err) => {
       console.log("Peer connection error", err);
-      myPeer.reconnect(); // Retry connecting to PeerJS server
+      myPeer.reconnect();
     });
   };
 
