@@ -76,15 +76,17 @@ console.log("Peer connected serve:");
 
 // PeerJS events
 peerServer.on("connection", (client) => {
+  console.log("Peer connected:1");
   console.log("Peer connected:", client.getId());
-    console.log("Peer connected:");
+  console.log("Peer connected:2");
 });
-console.log("Peer connected:");
+console.log("Peer connected:3");
 
 
 peerServer.on("disconnect", (client) => {
+  console.log("Peer disconnected:1");
   console.log("Peer disconnected:", client.getId());
-  console.log("Peer disconnected:");
+  console.log("Peer disconnected:2");
 });
-console.log("Peer disconnected:");
+console.log("Peer disconnected:3");
 
