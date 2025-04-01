@@ -65,8 +65,9 @@ const peerServer = ExpressPeerServer(server, {
   port: 443,  // Or the appropriate port depending on your deployment
   secure: true,
   allow_discovery: true,
-  console.log("PeerServe");
 });
+console.log("PeerServe");
+
 
 // Attach the PeerJS server to the Express app
 app.use("/peerjs", peerServer);
