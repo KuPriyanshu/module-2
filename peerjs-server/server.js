@@ -51,12 +51,6 @@ app.get("/", (req, res) => {
   res.send("Express and PeerJS server is running");
 });
 
-// Start the Express server
-const port = process.env.PORT || 5001; // Use a single port for both
-const server = app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
-});
-
 // Create the PeerJS server using the same Express instance
 const peerServer = ExpressPeerServer(server, {
   // path: "/peerjs",
@@ -81,5 +75,11 @@ peerServer.on("connection", (client) => {
 peerServer.on("disconnect", (client) => {
   console.log("Peer disconnected:", client.getId());
   console.log("Peer disconnected:");
+});
+
+// Start the Express server
+const port = process.env.PORT || 5001; // Use a single port for both
+const server = app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
 });
 
