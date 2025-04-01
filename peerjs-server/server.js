@@ -69,13 +69,17 @@ const peerServer = ExpressPeerServer(server, {
 
 // Attach the PeerJS server to the Express app
 app.use("/peerjs", peerServer);
+console.log("Peer connected serve:");
+
 
 // PeerJS events
 peerServer.on("connection", (client) => {
   console.log("Peer connected:", client.getId());
+    console.log("Peer connected:");
 });
 
 peerServer.on("disconnect", (client) => {
   console.log("Peer disconnected:", client.getId());
+  console.log("Peer disconnected:");
 });
 
