@@ -21,19 +21,6 @@ const JoinRoomForm = ({ uuid, socket, setUser, setMyPeer }) => {
 
     setMyPeer(myPeer);
 
-    peer.on('open', (id) => {
-      console.log('My peer ID is:', id);
-    });
-
-    peer.on('call', (call) => {
-  // Answer the incoming call
-      call.answer(window.localStream);  // Assuming you have a local stream
-    });
-
-    peer.on('error', (err) => {
-       console.log(err);
-    });
-
 
     myPeer.on("open", (id) => {
       const roomData = {
