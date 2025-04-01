@@ -11,20 +11,15 @@ const JoinRoomForm = ({ uuid, socket, setUser, setMyPeer }) => {
   const handleRoomJoin = (e) => {
     e.preventDefault();
 
-    const [peer, setPeer] = useState(null);  // State to hold the peer object
-
-    const createPeer = () => {
-    const newPeer = new Peer(undefined, {
-    host: 'module-2-peerjs.onrender.com',
-    port: 443,
-    path: '/peerjs',
-    secure: true,
+    // Open peer connection with the deployed PeerJS server
+    const myPeer = new Peer(undefined, {
+      host: 'module-2-peerjs.onrender.com', // Use the deployed server's URL
+      port: 443, // Standard HTTPS port
+      path: '/peerjs', // The path you defined in the backend
+      secure: true, // Ensure WebSocket is secure (wss://)
     });
 
-    setPeer(newPeer);  // Save peer in state for later use
-    };
-
-
+    setMyPeer(myPeer);
 
     myPeer.on("open", (id) => {
       const roomData = {
